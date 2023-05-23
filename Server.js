@@ -1,8 +1,8 @@
-import { Server } from "socket.io";
+import { Server as SocketServer } from "socket.io";
 
 let clickCount = 0
 
-const io = new Server(3000, {
+const io = new SocketServer(3000, {
     //options
     cors: {
         origin: "*",
