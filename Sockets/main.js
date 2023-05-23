@@ -14,7 +14,11 @@ document.querySelector('#app').innerHTML = `
     </a>
     <h1>Hello Vite!</h1>
     <div class="card">
-      <button id="counter" type="button"></button>
+      <button id="counter" type="button">Click</button>
+      <button id="reset" type="button">Reset</button>
+      <div id="totalClicks"> </div>
+      <div id="whoClicked"> </div> 
+      <div id="resetClicks"> </div>
     </div>
     <p class="read-the-docs">
       Click on the Vite logo to learn more
@@ -25,4 +29,38 @@ document.querySelector('#app').innerHTML = `
 setupCounter(document.querySelector('#counter'))
 
 
+const socket = io("ws://localhost:3000")
+
+socket.emit("connection")
+
+document.getElementById("counter").addEventListener("click", () => {
+  socket.emit("click")
+});
+
+document.getElementById("reset").addEventListener("click", () => {
+  socket.emit("resetClicks")
+});
+
+socket.on("someoneClicked", () => {
+  let jsonData = JSON.parse()
+
+  let totalClicks = jsonData.totalClicks;
+  let whoClicked = jsonData.whoClicked;
+
+  document.getElementById('resetClicks').innerHTML = whoClicked + " clicked the button!";
+  document.getElementById('totalClicks').innerHTML = totalClicks;
+});
+
+socket.on("someoneResetClicks", () => {
+  let jsonData = JSON.parse()
+
+  let totalClicks = jsonData.totalClicks;
+  let whoClicked = jsonData.whoClicked;
+
+  document.getElementById('resetClicks').innerHTML = whoClicked + " reset the button!";
+  document.getElementById('totalClicks').innerHTML = totalClicks;
+});
+
+
+  //Test
 
