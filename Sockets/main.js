@@ -6,28 +6,19 @@ import { io } from 'socket.io-client';
 
 document.querySelector('#app').innerHTML = `
   <div>
-    <a href="https://vitejs.dev" target="_blank">
-      <img src="${viteLogo}" class="logo" alt="Vite logo" />
-    </a>
-    <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript" target="_blank">
-      <img src="${javascriptLogo}" class="logo vanilla" alt="JavaScript logo" />
-    </a>
-    <h1>Hello Vite!</h1>
-
-    <h1>Please input your name below: </h1>
-    <input type="text" id="name" name="name">
-    <button id="getName" type="button">Enter</button>
+    <h1><marquee class="marquee">Please input your name below: </marquee></h1>
+    <input class="inputs" type="text" id="name" name="name">
+    <button class="buttons" id="getName" type="button">Enter</button>
 
     <div class="card">
-      <button id="counter" type="button">Click</button>
-      <button id="reset" type="button">Reset</button>
-      <div id="totalClicks">TotalClicks: </div>
-      <div id="whoClicked">WhoClicked: </div> 
-      <div id="resetClicks">Reset: </div>
+      <button class="buttons" id="counter" type="button">Click</button>
+      <button class="buttons" id="reset" type="button">Reset</button>
+      <div class="scoreBoardWrapper">
+      <div class="scoreBoard" id="totalClicks">TotalClicks: </div>
+      <div class="scoreBoard" id="whoClicked">WhoClicked: </div> 
+      <div class="scoreBoard" id="resetClicks">Reset: </div>
+      </div>
     </div>
-    <p class="read-the-docs">
-      Click on the Vite logo to learn more
-    </p>
   </div>
 `
 
