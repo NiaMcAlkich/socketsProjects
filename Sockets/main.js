@@ -36,7 +36,7 @@ setupCounter(document.querySelector('#counter'))
 
 const socket = io("ws://localhost:3000")
 
-socket.emit("connection")
+socket.emit("connectComplete")
 
 document.getElementById("counter").addEventListener("click", () => {
   socket.emit("click")
@@ -44,6 +44,24 @@ document.getElementById("counter").addEventListener("click", () => {
 
 document.getElementById("reset").addEventListener("click", () => {
   socket.emit("resetClicks")
+});
+
+socket.on("connection", (payloadAsString) => {
+  let jsonData = JSON.parse(payloadAsString);
+
+  let totalClicks = jsonData.totalClicks;
+  let whoClicked = jsonData.whoClicked;
+
+  //using the find function to get the name paired with the users socket id to display
+  if (jsonData.name) {
+    let name = jsonData.name.find(([socketId]) => socketId === whoClicked);
+    if (name) {
+      whoClicked = name[1];
+    }
+  }
+
+  document.getElementById('whoClicked').innerHTML = whoClicked + " connected!";
+  document.getElementById('totalClicks').innerHTML = "TotalClicks: " + totalClicks;
 });
 
 document.getElementById("getName").addEventListener("click", () => {
@@ -56,7 +74,15 @@ socket.on("someoneClicked", (payloadAsString) => {
   let jsonData = JSON.parse(payloadAsString)
 
   let totalClicks = jsonData.totalClicks;
-  let whoClicked = jsonData.name;
+  let whoClicked = jsonData.whoClicked;
+
+  //using the find function to get the name paired with the users socket id to display
+  if (jsonData.name) {
+    let name = jsonData.name.find(([socketId]) => socketId === whoClicked);
+    if (name) {
+      whoClicked = name[1];
+    }
+  }
 
   document.getElementById('whoClicked').innerHTML = whoClicked + " clicked the button!";
   document.getElementById('totalClicks').innerHTML = "TotalClicks: " + totalClicks;
@@ -66,7 +92,15 @@ socket.on("someoneResetClicks", (payloadAsString) => {
   let jsonData = JSON.parse(payloadAsString)
 
   let totalClicks = jsonData.totalClicks;
-  let whoClicked = jsonData.name;
+  let whoClicked = jsonData.whoClicked;
+
+  //using the find function to get the name paired with the users socket id to display
+  if (jsonData.name) {
+    let name = jsonData.name.find(([socketId]) => socketId === whoClicked);
+    if (name) {
+      whoClicked = name[1];
+    }
+  }
 
   document.getElementById('resetClicks').innerHTML = whoClicked + " reset the button!";
   document.getElementById('totalClicks').innerHTML = "TotalClicks: " + totalClicks;
