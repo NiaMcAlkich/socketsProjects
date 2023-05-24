@@ -56,7 +56,7 @@ socket.on("someoneClicked", (payloadAsString) => {
   let jsonData = JSON.parse(payloadAsString)
 
   let totalClicks = jsonData.totalClicks;
-  let whoClicked = jsonData.whoClicked;
+  let whoClicked = jsonData.name;
 
   document.getElementById('whoClicked').innerHTML = whoClicked + " clicked the button!";
   document.getElementById('totalClicks').innerHTML = "TotalClicks: " + totalClicks;
@@ -66,7 +66,7 @@ socket.on("someoneResetClicks", (payloadAsString) => {
   let jsonData = JSON.parse(payloadAsString)
 
   let totalClicks = jsonData.totalClicks;
-  let whoClicked = jsonData.whoClicked;
+  let whoClicked = jsonData.name;
 
   document.getElementById('resetClicks').innerHTML = whoClicked + " reset the button!";
   document.getElementById('totalClicks').innerHTML = "TotalClicks: " + totalClicks;
