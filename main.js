@@ -19,8 +19,10 @@ document.querySelector('#app').innerHTML = `
       <div> <h2>Who Reset: </h2></div>
       <div class="name" id="resetClicks"></div>
       </div>
-      <div> <h2>Final Count: </h2></div>
-      <div class="scoreBoard" id="totalClicks">TotalClicks: </div>
+      <div class="finalCountWrapper">
+      <div class="finalCount"> <span>Final Count: </span></div>
+      <div class="scoreBoard" id="totalClicks"></div>
+      </div>
       </div>
       </div>
   </div>

@@ -1,7 +1,7 @@
 :root {
   color: #213547;
   background-color: rgb(8, 0, 96);
-  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
   line-height: 1.5;
   font-weight: 400;
 
@@ -93,14 +93,17 @@ button:focus-visible {
 
 .scoreBoard {
   text-align: center;
-  margin: 1em;
-  height: 10em;
+  height: 8em;
   width: 6em;
-  border-color: black;
-  border-width: 0.2em;
-  color: rgb(0, 0, 0);
-  font-size: x-large;
-  background-color: rgb(255, 255, 255);
+  color: white;
+  border: 0.15em solid gold;
+  background-color: blueviolet;
+  border-radius: 6px;
+  border-width: 0.15em;
+  border-color: gold;
+  font-size: 1.6em;
+  font-weight: 500;
+  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
 }
 
 .namesWrapper {
@@ -114,9 +117,32 @@ button:focus-visible {
   text-align: center;
   height: 2em;
   width: 15em;
-  border-color: black;
-  border-width: 0.2em;
-  color: rgb(0, 0, 0);
-  font-size: x-large;
-  background-color: rgb(255, 255, 255);
+  color: white;
+  border: 0.15em solid gold;
+  background-color: blueviolet;
+  border-radius: 6px;
+  border-width: 0.15em;
+  border-color: gold;
+  padding: 0.6em 1.2em;
+  font-size: 1.4em;
+  font-weight: 500;
+  font-family: inherit;
+
+}
+
+.finalCountWrapper {
+  display: flex;
+  flex-direction: column;
+  margin: 6em;
+}
+
+.finalCount {
+  text-align: center;
+  height: 2em;
+  width: 15em;
+  color: white;
+  padding: 0.6em 1.2em;
+  font-size: 1.4em;
+  font-weight: 500;
+  font-family: inherit;
 }
