@@ -13,11 +13,16 @@ document.querySelector('#app').innerHTML = `
       <button class="buttons" id="counter" type="button">Click</button>
       <button class="buttons" id="reset" type="button">Reset</button>
       <div class="scoreBoardWrapper">
-      <div class="scoreBoard" id="totalClicks">TotalClicks: </div>
-      <div class="scoreBoard" id="whoClicked">WhoClicked: </div> 
-      <div class="scoreBoard" id="resetClicks">Reset: </div>
+      <div class="namesWrapper">
+      <div> <p>Who Clicked: </p></div>
+      <div class="name" id="whoClicked"></div> 
+      <div> <p>Who Reset: </p></div>
+      <div class="name" id="resetClicks"></div>
       </div>
-    </div>
+      <div> <p>Final Count: </p></div>
+      <div class="scoreBoard" id="totalClicks">TotalClicks: </div>
+      </div>
+      </div>
   </div>
 `
 
@@ -51,7 +56,7 @@ socket.on("connection", (payloadAsString) => {
   }
 
   document.getElementById('whoClicked').innerHTML = whoClicked + " connected!";
-  document.getElementById('totalClicks').innerHTML = "TotalClicks: " + totalClicks;
+  document.getElementById('totalClicks').innerHTML = totalClicks;
 });
 
 document.getElementById("getName").addEventListener("click", () => {
@@ -74,8 +79,8 @@ socket.on("someoneClicked", (payloadAsString) => {
     }
   }
 
-  document.getElementById('whoClicked').innerHTML = whoClicked + " clicked the button!";
-  document.getElementById('totalClicks').innerHTML = "TotalClicks: " + totalClicks;
+  document.getElementById('whoClicked').innerHTML = whoClicked;
+  document.getElementById('totalClicks').innerHTML = totalClicks;
 });
 
 socket.on("someoneResetClicks", (payloadAsString) => {
@@ -92,8 +97,8 @@ socket.on("someoneResetClicks", (payloadAsString) => {
     }
   }
 
-  document.getElementById('resetClicks').innerHTML = whoClicked + " reset the button!";
-  document.getElementById('totalClicks').innerHTML = "TotalClicks: " + totalClicks;
+  document.getElementById('resetClicks').innerHTML = whoClicked;
+  document.getElementById('totalClicks').innerHTML = totalClicks;
 });
 
 
