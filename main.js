@@ -14,12 +14,12 @@ document.querySelector('#app').innerHTML = `
       <button class="buttons" id="reset" type="button">Reset</button>
       <div class="scoreBoardWrapper">
       <div class="namesWrapper">
-      <div> <p>Who Clicked: </p></div>
+      <div> <h2>Who Clicked: </h2></div>
       <div class="name" id="whoClicked"></div> 
-      <div> <p>Who Reset: </p></div>
+      <div> <h2>Who Reset: </h2></div>
       <div class="name" id="resetClicks"></div>
       </div>
-      <div> <p>Final Count: </p></div>
+      <div> <h2>Final Count: </h2></div>
       <div class="scoreBoard" id="totalClicks">TotalClicks: </div>
       </div>
       </div>
