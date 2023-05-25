@@ -2,6 +2,7 @@ import { setupCounter } from './counter.js';
 import { io } from 'socket.io-client';
 import './style.css'
 
+
 document.querySelector('#app').innerHTML = `
   <div>
     <h1><marquee class="marquee">Please input your name below: </marquee></h1>
