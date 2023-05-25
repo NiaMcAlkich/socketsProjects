@@ -1,8 +1,7 @@
-import './style.css';
-import javascriptLogo from './javascript.svg';
-import viteLogo from '/vite.svg';
 import { setupCounter } from './counter.js';
 import { io } from 'socket.io-client';
+import './style.css'
+
 
 document.querySelector('#app').innerHTML = `
   <div>
@@ -100,3 +99,4 @@ socket.on("someoneResetClicks", (payloadAsString) => {
 
 
   //Test
+
