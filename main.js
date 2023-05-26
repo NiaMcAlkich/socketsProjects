@@ -5,7 +5,7 @@ import './style.css'
 document.querySelector('#app').innerHTML = `
   <div>
     <h1><marquee class="marquee">Please input your name below: </marquee></h1>
-    <input class="inputs" type="text" id="friendlyNname" name="friendlyName">
+    <input class="inputs" type="text" id="friendlyName" name="friendlyName">
     <button class="buttons" id="getfriendlyName" type="button">Enter</button>
 
     <div class="card">
@@ -63,7 +63,7 @@ socket.on("connection", (payloadAsString) => {
   //using the find function to get the name paired with the users socket id to display
   if (jsonData.friendlyName) {
     let friendlyName = jsonData.friendlyName.find(([socketId]) => socketId === whoClicked);
-    if (friendlyNname) {
+    if (friendlyName) {
       whoClicked = friendlyName[1];
     }
   }
@@ -72,8 +72,8 @@ socket.on("connection", (payloadAsString) => {
   document.getElementById('totalClicks').innerHTML = totalClicks;
 });
 
-document.getElementById("getfriendlyName").addEventListener("click", () => {
-  let friendlyNname = document.getElementById('friendlyName').value;
+document.getElementById("getFriendlyName").addEventListener("click", () => {
+  let friendlyName = document.getElementById('friendlyName').value;
 
   socket.emit("getfriendlyName", friendlyName)
 });
