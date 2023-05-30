@@ -1,7 +1,11 @@
+//Imports socket io and the css into the project
 import { io } from 'socket.io-client';
 import './style.css'
 
 
+//This is to inject the html as app into the index file
+//It has multipl wrappers to control where each element sits and make it look nice on screen 
+//It also sets up ids to grab the elements by id for the javascript code part
 document.querySelector('#app').innerHTML = `
   <div>
     <h1><marquee class="marquee">Please input your name below: </marquee></h1>
@@ -32,7 +36,7 @@ document.querySelector('#app').innerHTML = `
 `
 
 
-//Setting up counter
+//Setting up counter and increments on click 
 function setupCounter(element) {
   let counter = 0
   const setCounter = (count) => {
@@ -43,12 +47,15 @@ function setupCounter(element) {
   setCounter(0)
 }
 
+
 setupCounter(document.querySelector('#totalClicks'))
 
-
+//Sets up socket io connection with server
 const socket = io("ws://localhost:3000")
 
+//Emits a complete connection signal to confirm user is connected
 socket.emit("connectComplete")
+
 
 document.getElementById("counter").addEventListener("click", () => {
   socket.emit("click")
