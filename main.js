@@ -9,21 +9,25 @@ document.querySelector('#app').innerHTML = `
     <button class="buttons" id="getfriendlyName" type="button">Enter</button>
 
     <div class="card">
-      <button class="buttons" id="counter" type="button">Click</button>
+      <button class="buttons" id="counter" type="button">Click me!</button>
       <button class="buttons" id="reset" type="button">Reset</button>
-      <div class="scoreBoardWrapper">
-      <div class="namesWrapper">
-      <div> <h2>Who Clicked: </h2></div>
-      <div class="name" id="whoClicked"></div> 
-      <div> <h2>Who Reset: </h2></div>
-      <div class="name" id="resetClicks"></div>
-      </div>
-      <div class="finalCountWrapper">
-      <div class="finalCount"> <span>Final Count: </span></div>
-      <div class="scoreBoard" id="totalClicks"></div>
-      </div>
-      </div>
-      </div>
+        <div class="everythingWrapper">
+          <div class="namesWrapper">
+            <div class="nameBoxWrapper">
+              <div class="name"> <h2>Who Clicked: </h2></div>
+              <div class="nameBox" id="whoClicked"></div> 
+            </div>
+            <div class="nameBoxWrapper">
+              <div class="name"> <h2>Who Reset: </h2></div>
+              <div class="nameBox" id="resetClicks"></div>
+            </div>
+          </div>
+            <div class="scoreWrapper">
+              <div class="name"> <span>Final Count: </span></div>
+              <div class="scoreBoard" id="totalClicks"></div>
+            </div>
+        </div>
+    </div>
   </div>
 `
 
@@ -33,13 +37,13 @@ function setupCounter(element) {
   let counter = 0
   const setCounter = (count) => {
     counter = count
-    element.innerHTML = `count is ${counter}`
+    element.innerHTML = counter
   }
   element.addEventListener('click', () => setCounter(counter + 1))
   setCounter(0)
 }
 
-setupCounter(document.querySelector('#counter'))
+setupCounter(document.querySelector('#totalClicks'))
 
 
 const socket = io("ws://localhost:3000")

@@ -84,11 +84,55 @@ button:focus-visible {
   color: white
 }
 
-.scoreBoardWrapper {
+.everythingWrapper {
   text-align: center;
   display: flex;
   flex-direction: row;
-  align-content: center;
+  margin: 1.5em;
+}
+
+.namesWrapper {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+}
+
+.nameBoxWrapper {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  margin-right: 4em;
+}
+
+.name {
+  text-align: center;
+  color: white;
+  font-size: 1em;
+  font-weight: 400;
+  font-family: inherit;
+}
+
+.nameBox {
+  text-align: center;
+  height: 1.5em;
+  width: 15em;
+  color: white;
+  border: 0.15em solid gold;
+  background-color: blueviolet;
+  border-radius: 6px;
+  border-width: 0.15em;
+  padding: 0.6em 1.2em;
+  font-size: 1.2em;
+  font-weight: 400;
+  font-family: inherit;
+}
+
+.scoreWrapper {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  margin-right: 4em;
+  margin-top: 1em;
 }
 
 .scoreBoard {
@@ -100,49 +144,8 @@ button:focus-visible {
   background-color: blueviolet;
   border-radius: 6px;
   border-width: 0.15em;
-  border-color: gold;
-  font-size: 1.6em;
-  font-weight: 500;
-  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
-}
-
-.namesWrapper {
-  text-align: center;
-  display: flex;
-  flex-direction: column;
-  align-content: center;
-}
-
-.name {
-  text-align: center;
-  height: 2em;
-  width: 15em;
-  color: white;
-  border: 0.15em solid gold;
-  background-color: blueviolet;
-  border-radius: 6px;
-  border-width: 0.15em;
-  border-color: gold;
   padding: 0.6em 1.2em;
-  font-size: 1.4em;
-  font-weight: 500;
-  font-family: inherit;
-
-}
-
-.finalCountWrapper {
-  display: flex;
-  flex-direction: column;
-  margin: 6em;
-}
-
-.finalCount {
-  text-align: center;
-  height: 2em;
-  width: 15em;
-  color: white;
-  padding: 0.6em 1.2em;
-  font-size: 1.4em;
-  font-weight: 500;
+  font-size: 1.2em;
+  font-weight: 400;
   font-family: inherit;
 }
