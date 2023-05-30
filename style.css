@@ -137,15 +137,13 @@ button:focus-visible {
 
 .scoreBoard {
   text-align: center;
-  height: 8em;
-  width: 6em;
+
   color: white;
-  border: 0.15em solid gold;
+  border: 0.06em solid gold;
   background-color: blueviolet;
   border-radius: 6px;
-  border-width: 0.15em;
-  padding: 0.6em 1.2em;
-  font-size: 1.2em;
+  padding: 0.6em 0.6em 0.6em 0.6em;
+  font-size: 4em;
   font-weight: 400;
   font-family: inherit;
 }
