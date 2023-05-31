@@ -7,6 +7,11 @@ document.addEventListener("DOMContentLoaded", function() {
   //This is to inject the html as app into the index file
   //It has multipl wrappers to control where each element sits and make it look nice on screen 
   //It also sets up ids to grab the elements by id for the javascript code part
+  //The marquee tells you to input a name in the box then when you hit enter that name is then 
+  //sent over to the server as your friendly name 
+  //if you click the click me! button it tells you in the who clicked box 
+  //if you click reset it will tell you who reset the button in the who reset box 
+  //it will also update the final count box to show the current count 
   document.querySelector('#app').innerHTML = `
     <div>
       <h1><marquee class="marquee">Please input your name below: </marquee></h1>
@@ -57,15 +62,22 @@ document.addEventListener("DOMContentLoaded", function() {
   //Emits a complete connection signal to confirm user is connected
   socket.emit("connectComplete")
 
-
+//This grabs the html element counter
+//then adds an event click listener 
+//when someone clicks the button it will emit the click to the server
   document.getElementById("counter").addEventListener("click", () => {
     socket.emit("click")
   });
 
+  //This grabs the html reset element
+  //and adds a listener to it 
+  //then emits the reset click to the server
   document.getElementById("reset").addEventListener("click", () => {
     socket.emit("resetClicks")
   });
 
+  //This will send out the payload when someone connects and parses the data 
+  //then gets the total clicks and who clicked to update the html accordingly
   socket.on("connection", (payloadAsString) => {
     let jsonData = JSON.parse(payloadAsString);
 
@@ -84,12 +96,17 @@ document.addEventListener("DOMContentLoaded", function() {
     document.getElementById('totalClicks').innerHTML = totalClicks;
   });
 
+  //This is where when someone clicks enter the client side will grab the value they enter in the box
+  //and it will set the friendlyName variable equal to the value and emit that back to the server
   document.getElementById("getFriendlyName").addEventListener("click", () => {
     let friendlyName = document.getElementById('friendlyName').value;
 
     socket.emit("getFriendlyName", friendlyName)
   });
 
+  //This listens for the server to say someone clicked the button
+  //it will parse the payload sent and pull out the friendly name and total clicks
+  //it then updates html accordingly 
   socket.on("someoneClicked", (payloadAsString) => {
     let jsonData = JSON.parse(payloadAsString)
 
@@ -108,6 +125,8 @@ document.addEventListener("DOMContentLoaded", function() {
     document.getElementById('totalClicks').innerHTML = totalClicks;
   });
 
+  //This listens for the server to say the reset button was clicked 
+  //and grabs the payload data to update the html with just like the someone clicked signal
   socket.on("someoneResetClicks", (payloadAsString) => {
     let jsonData = JSON.parse(payloadAsString)
 
