@@ -1,6 +1,7 @@
 //Imports socket io and the css into the project
 import { io } from 'socket.io-client';
 import './style.css'
+import 'animate.css'
 
 document.addEventListener("DOMContentLoaded", function() {
 

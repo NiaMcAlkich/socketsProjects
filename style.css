@@ -137,7 +137,6 @@ button:focus-visible {
 
 .scoreBoard {
   text-align: center;
-
   color: white;
   border: 0.06em solid gold;
   background-color: blueviolet;
@@ -147,3 +146,5 @@ button:focus-visible {
   font-weight: 400;
   font-family: inherit;
 }
+
+
