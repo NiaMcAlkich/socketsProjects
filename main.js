@@ -33,7 +33,7 @@ document.addEventListener("DOMContentLoaded", function() {
                 <div class="nameBox" id="resetClicks"></div>
               </div>
             </div>
-              <div class="scoreWrapper">
+              <div class="scoreWrapper" id="finalCountBox">
                 <div class="name"> <span>Final Count: </span></div>
                 <div class="scoreBoard" id="totalClicks"></div>
               </div>
@@ -123,6 +123,7 @@ document.addEventListener("DOMContentLoaded", function() {
     }
 
     document.getElementById('whoClicked').innerHTML = whoClicked;
+    const flipBox = document.getElementById('finalCountBox').add('flip')
     document.getElementById('totalClicks').innerHTML = totalClicks;
   });
 
