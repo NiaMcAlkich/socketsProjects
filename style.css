@@ -93,8 +93,8 @@ button:focus-visible {
 }
 
 .enterButton {
-  height: 2.6em;
-  margin: 0em 0em 1em 0.2em 
+  height: 3em;
+  margin: 0em 0em 1em 1em;
 }
 
 .marquee {
