@@ -125,6 +125,7 @@ document.addEventListener("DOMContentLoaded", function() {
     }
 
     document.getElementById('whoClicked').innerHTML = whoClicked;
+    document.getElementById('totalClicks').classList = "scoreBoard animate__animated animate__flipInX";
     document.getElementById('totalClicks').innerHTML = totalClicks;
   });
 
@@ -145,6 +146,7 @@ document.addEventListener("DOMContentLoaded", function() {
     }
 
     document.getElementById('resetClicks').innerHTML = whoClicked;
+    document.getElementById('totalClicks').classList = "scoreBoard animate__animated animate__flipInX";
     document.getElementById('totalClicks').innerHTML = totalClicks;
   });
 

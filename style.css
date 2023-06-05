@@ -60,6 +60,7 @@ h2 {
 }
 
 button {
+  height: 2.85em;
   color: white;
   background-color: blueviolet;
   border-radius: 8px;
@@ -93,7 +94,7 @@ button:focus-visible {
 }
 
 .enterButton {
-  height: 3em;
+  height: 2.85em;
   margin: 0em 0em 1em 1em;
 }
 
@@ -162,6 +163,9 @@ button:focus-visible {
   font-family: inherit;
 }
 
-.flipInX {
-  animation: flip 2s;
+.flip {
+  display: inline-block;
+  margin: 0 0.5rem;
+  animation: flipInX; 
+  animation-duration: 2s; 
 }
