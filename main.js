@@ -17,12 +17,14 @@ document.addEventListener("DOMContentLoaded", function() {
     <div>
       <h1><marquee class="marquee">Please input your name below: </marquee></h1>
       <input class="inputs" type="text" id="friendlyName" name="friendlyName">
-      <button class="buttons" id="getFriendlyName" type="button">Enter</button>
+      <button class="enterButton" id="getFriendlyName" type="button">Enter</button>
 
       <div class="card">
-        <button class="buttons" id="counter" type="button">Click me!</button>
-        <button class="buttons" id="reset" type="button">Reset</button>
           <div class="everythingWrapper">
+          <div class="buttonWrap">
+          <button class="buttons" id="counter" type="button">Click me!</button>
+          <button class="buttons" id="reset" type="button">Reset</button>
+          </div>
             <div class="namesWrapper">
               <div class="nameBoxWrapper">
                 <div class="name"> <h2>Who Clicked: </h2></div>
@@ -34,7 +36,7 @@ document.addEventListener("DOMContentLoaded", function() {
               </div>
             </div>
               <div class="scoreWrapper" id="finalCountBox">
-                <div class="name"> <span>Final Count: </span></div>
+                <div class="name"> <h2>Final Count: </h2></div>
                 <div class="scoreBoard" id="totalClicks"></div>
               </div>
           </div>
@@ -48,14 +50,14 @@ document.addEventListener("DOMContentLoaded", function() {
     let counter = 0
     const setCounter = (count) => {
       counter = count
-      element.innerHTML = counter
+      element.innerHTML = "Click Me!"
     }
     element.addEventListener('click', () => setCounter(counter + 1))
     setCounter(0)
   }
 
 
-  setupCounter(document.querySelector('#totalClicks'))
+  setupCounter(document.querySelector('#counter'))
 
   //Sets up socket io connection with server
   const socket = io("ws://localhost:3000")
@@ -83,7 +85,7 @@ document.addEventListener("DOMContentLoaded", function() {
     let jsonData = JSON.parse(payloadAsString);
 
     let totalClicks = jsonData.totalClicks;
-    let whoClicked = jsonData.whoClicked;
+    let whoClicked = jsonData.whoClicked ?? socket.id;
 
     //using the find function to get the name paired with the users socket id to display
     if (jsonData.friendlyName) {
@@ -112,7 +114,7 @@ document.addEventListener("DOMContentLoaded", function() {
     let jsonData = JSON.parse(payloadAsString)
 
     let totalClicks = jsonData.totalClicks;
-    let whoClicked = jsonData.whoClicked;
+    let whoClicked = jsonData.whoClicked ?? socket.id;
 
     //using the find function to get the name paired with the users socket id to display
     if (jsonData.friendlyName) {
@@ -123,7 +125,6 @@ document.addEventListener("DOMContentLoaded", function() {
     }
 
     document.getElementById('whoClicked').innerHTML = whoClicked;
-    const flipBox = document.getElementById('finalCountBox').add('flip')
     document.getElementById('totalClicks').innerHTML = totalClicks;
   });
 
@@ -133,7 +134,7 @@ document.addEventListener("DOMContentLoaded", function() {
     let jsonData = JSON.parse(payloadAsString)
 
     let totalClicks = jsonData.totalClicks;
-    let whoClicked = jsonData.whoClicked;
+    let whoClicked = jsonData.whoClicked ?? socket.id;
 
     //using the find function to get the name paired with the users socket id to display
     if (jsonData.friendlyName) {
