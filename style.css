@@ -167,5 +167,40 @@ button:focus-visible {
   display: inline-block;
   margin: 0 0.5rem;
   animation: flipInX; 
-  animation-duration: 2s; 
+  animation-duration: 6s; 
+}
+
+.wobble {
+  display: inline-block;
+  margin: 0 0.5rem;
+  animation: wobble; 
+  animation-duration: 6s; 
+}
+
+.hinge {
+  display: inline-block;
+  margin: 0 0.5rem;
+  animation: hinge; 
+  animation-duration: 6s; 
+}
+
+.heartBeat {
+  display: inline-block;
+  margin: 0 0.5rem;
+  animation: heartbeat; 
+  animation-duration: 6s; 
+}
+
+.rubberBand {
+  display: inline-block;
+  margin: 0 0.5rem;
+  animation: rubberBand; 
+  animation-duration: 6s; 
+}
+
+.flash {
+  display: inline-block;
+  margin: 0 0.5rem;
+  animation: flash; 
+  animation-duration: 6s; 
 }

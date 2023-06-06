@@ -3,6 +3,7 @@ import { io } from 'socket.io-client';
 import './style.css'
 import 'animate.css'
 
+
 document.addEventListener("DOMContentLoaded", function() {
 
   //This is to inject the html as app into the index file
@@ -105,6 +106,8 @@ document.addEventListener("DOMContentLoaded", function() {
     let friendlyName = document.getElementById('friendlyName').value;
 
     socket.emit("getFriendlyName", friendlyName)
+    document.getElementById('getFriendlyName').classList = "enterButton animate__animated animate__rubberBand";
+    document.getElementById('friendlyName').classList = "inputs animate__animated animate__flash";
   });
 
   //This listens for the server to say someone clicked the button
@@ -124,7 +127,10 @@ document.addEventListener("DOMContentLoaded", function() {
       }
     }
 
+    document.getElementById('counter').classList = "buttons animate__animated animate__rubberBand";
     document.getElementById('whoClicked').innerHTML = whoClicked;
+    document.getElementById('whoClicked').classList = "nameBox animate__animated animate__heartBeat";
+    //Trying to get this to flip the box every time someone clicks for some reason only flips once
     document.getElementById('totalClicks').classList = "scoreBoard animate__animated animate__flipInX";
     document.getElementById('totalClicks').innerHTML = totalClicks;
   });
@@ -145,8 +151,11 @@ document.addEventListener("DOMContentLoaded", function() {
       }
     }
 
+    document.getElementById('reset').classList = "buttons animate__animated animate__rubberBand";
     document.getElementById('resetClicks').innerHTML = whoClicked;
-    document.getElementById('totalClicks').classList = "scoreBoard animate__animated animate__flipInX";
+    document.getElementById('resetClicks').classList = "nameBox animate__animated animate__heartBeat";
+    //Trying to get this to flip the box every time someone clicks for some reason only flips once
+    document.getElementById('totalClicks').classList = "scoreBoard animate__animated animate__wobble";
     document.getElementById('totalClicks').innerHTML = totalClicks;
   });
 
