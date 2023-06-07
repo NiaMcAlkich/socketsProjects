@@ -61,7 +61,7 @@ document.addEventListener("DOMContentLoaded", function() {
   setupCounter(document.querySelector('#counter'))
 
   //Sets up socket io connection with server
-  const socket = io("ws://localhost:3000")
+  const socket = io(import.meta.env.VITE_ipAdd)
 
   //Emits a complete connection signal to confirm user is connected
   socket.emit("connectComplete")
